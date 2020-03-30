@@ -1,4 +1,3 @@
-import javax.security.auth.callback.LanguageCallback;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -6,14 +5,14 @@ import java.util.Random;
       Author: Libert
       Date: 3/10/2020: Initial version
  */
-public class Platform {
+public class GameEngine {
     // This class is to put Crowd on World and put virus on crowd
     private Crowd crowd;
     private World world;
     private Virus virus;
     private int date=0;
     private Random rand=new Random();
-    public Platform(Crowd c, World w, Virus v) {
+    public GameEngine(Crowd c, World w, Virus v) {
         this.crowd=c;
         this.world=w;
         this.virus=v;
@@ -258,7 +257,7 @@ public class Platform {
         JLabel[][] LabelArray=w.show();
         for(int i=0; i<15; i++) w.VolcanoMethod(150, LabelArray);
         w.clean(LabelArray);
-        Platform p=new Platform(c, w, v);
+        GameEngine p=new GameEngine(c, w, v);
         JLabel[] labels=p.infoPanel();
         p.setCrowd(LabelArray);
         for(int i=0; i<10; i++) p.setInfection();
